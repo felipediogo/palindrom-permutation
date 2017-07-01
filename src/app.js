@@ -62,6 +62,7 @@ const index = (message) => {
       if (isAPalindrome(currentPermutation)) {
         return 'YES';
       }
+      console.log(`fatorial -> ${fatorial} | round -> ${i} of ${round} | permutation -> ${currentPermutation}`);
       permValues.push(currentPermutation);
     }
     fatorial-=round;
@@ -79,7 +80,7 @@ const index = (message) => {
 };
 
 
-console.log(index('aaabbbb'));
+console.log(index('12345678901'));
 
 // const t = ['1', '1', '3'];
 // const x = t.slice();
