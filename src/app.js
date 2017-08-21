@@ -1,10 +1,10 @@
-const EMPTY_SPACE = ' ';
+const IGNORED_CHARS = ' ?!,.`\'\"';
 const isAnyPermutationAPalindrom = (string) => {
   const letters = {};
   const toLowerSentence = string.toLowerCase();
 
   toLowerSentence.split('').forEach((letter) => {
-    if (letter === EMPTY_SPACE) return;
+    if (IGNORED_CHARS.indexOf(letter) > 0) return;
     if (!letters[letter]) {
       letters[letter] = 0;
     }
@@ -13,7 +13,6 @@ const isAnyPermutationAPalindrom = (string) => {
   
   let isEven = false;
   const lettersMap = Object.keys(letters);
-
   for (var i=0; i<lettersMap.length; i++) {
     let letter = lettersMap[i];
     if (!(letters[letter] % 2 == 0)) {
@@ -26,4 +25,5 @@ const isAnyPermutationAPalindrom = (string) => {
   return true;
 };
 
-console.log(isAnyPermutationAPalindrom("A torre da derrota"));
+console.log(isAnyPermutationAPalindrom('"Stop!" nine myriad murmur. "Put up rum, rum, dairymen, in pots."'));
+console.log(isAnyPermutationAPalindrom("Star? Come, Donna Melba, I'm an amiable man -- no Democrats!"));
